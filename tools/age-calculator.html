@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Free online tools for everyone.">
+<meta name="keywords" content="calculator, qr generator, password generator, bmi calculator">
+<meta name="author" content="Your Name">
+
+<meta property="og:title" content="MyTools">
+<meta property="og:description" content="Free Online Tools Website">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://yourusername.github.io">
+<title>Age Calculator - MyTools</title>
+
+<meta name="description"
+content="Calculate your exact age in years, months and days instantly.">
+
+<link rel="stylesheet" href="../style.css">
+
+<style>
+
+.page-section{
+    padding:60px 20px;
+}
+
+.tool-container{
+    max-width:700px;
+    margin:auto;
+}
+
+.tool-title{
+    text-align:center;
+    margin-bottom:30px;
+}
+
+.tool-title h1{
+    color:#2563eb;
+    margin-bottom:10px;
+}
+
+.result-item{
+    margin:10px 0;
+    font-size:18px;
+}
+
+.back-home{
+    display:inline-block;
+    margin-bottom:20px;
+    text-decoration:none;
+    color:#2563eb;
+    font-weight:600;
+}
+
+</style>
+
+</head>
+<body>
+
+<header>
+
+<div class="container nav">
+
+<div class="logo">
+MyTools
+</div>
+
+<nav>
+<ul>
+<li><a href="../index.html">Home</a></li>
+<li><a href="../index.html#tools">Tools</a></li>
+</ul>
+</nav>
+
+</div>
+
+</header>
+
+<section class="page-section">
+
+<div class="tool-container">
+
+<a class="back-home" href="../index.html">
+← Back to Home
+</a>
+
+<div class="tool-title">
+<h1>Age Calculator</h1>
+<p>
+Calculate your exact age instantly.
+</p>
+</div>
+
+<div class="tool-form">
+
+<label>Date of Birth</label>
+
+<input
+type="date"
+id="dob"
+>
+
+<button
+class="btn"
+onclick="calculateAge()">
+Calculate Age
+</button>
+
+<div
+class="result-box"
+id="resultBox"
+style="display:none;"
+>
+
+<div class="result-item">
+Years:
+<span id="years">0</span>
+</div>
+
+<div class="result-item">
+Months:
+<span id="months">0</span>
+</div>
+
+<div class="result-item">
+Days:
+<span id="days">0</span>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<footer>
+
+<div class="container">
+
+<p>
+© 2026 MyTools. All Rights Reserved.
+</p>
+
+</div>
+
+</footer>
+
+<script>
+
+function calculateAge(){
+
+    const dobInput =
+    document.getElementById("dob").value;
+
+    if(!dobInput){
+
+        alert("Please select your date of birth.");
+
+        return;
+    }
+
+    const birthDate =
+    new Date(dobInput);
+
+    const today =
+    new Date();
+
+    let years =
+    today.getFullYear() -
+    birthDate.getFullYear();
+
+    let months =
+    today.getMonth() -
+    birthDate.getMonth();
+
+    let days =
+    today.getDate() -
+    birthDate.getDate();
+
+    if(days < 0){
+
+        months--;
+
+        const previousMonth =
+        new Date(
+            today.getFullYear(),
+            today.getMonth(),
+            0
+        );
+
+        days += previousMonth.getDate();
+    }
+
+    if(months < 0){
+
+        years--;
+
+        months += 12;
+    }
+
+    document.getElementById("years")
+    .innerText = years;
+
+    document.getElementById("months")
+    .innerText = months;
+
+    document.getElementById("days")
+    .innerText = days;
+
+    document.getElementById("resultBox")
+    .style.display = "block";
+
+}
+
+</script>
+
+</body>
+</html>

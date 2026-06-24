@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Free online tools for everyone.">
+<meta name="keywords" content="calculator, qr generator, password generator, bmi calculator">
+<meta name="author" content="Your Name">
+
+<meta property="og:title" content="MyTools">
+<meta property="og:description" content="Free Online Tools Website">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://yourusername.github.io">
+<title>BMI Calculator - MyTools</title>
+
+<meta name="description"
+content="Free BMI Calculator. Calculate your Body Mass Index instantly.">
+
+<link rel="stylesheet" href="../style.css">
+
+<style>
+
+.page-section{
+    padding:60px 20px;
+}
+
+.tool-container{
+    max-width:700px;
+    margin:auto;
+}
+
+.tool-title{
+    text-align:center;
+    margin-bottom:30px;
+}
+
+.tool-title h1{
+    color:#2563eb;
+    margin-bottom:10px;
+}
+
+.back-home{
+    display:inline-block;
+    margin-bottom:20px;
+    text-decoration:none;
+    color:#2563eb;
+    font-weight:600;
+}
+
+.category{
+    margin-top:10px;
+    font-size:18px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+<div class="container nav">
+
+<div class="logo">
+MyTools
+</div>
+
+<nav>
+<ul>
+<li><a href="../index.html">Home</a></li>
+<li><a href="../index.html#tools">Tools</a></li>
+</ul>
+</nav>
+
+</div>
+
+</header>
+
+<section class="page-section">
+
+<div class="tool-container">
+
+<a class="back-home" href="../index.html">
+← Back to Home
+</a>
+
+<div class="tool-title">
+
+<h1>BMI Calculator</h1>
+
+<p>
+Calculate your Body Mass Index instantly.
+</p>
+
+</div>
+
+<div class="tool-form">
+
+<label>Height (cm)</label>
+
+<input
+type="number"
+id="height"
+placeholder="Enter height in cm">
+
+<label>Weight (kg)</label>
+
+<input
+type="number"
+id="weight"
+placeholder="Enter weight in kg">
+
+<button
+class="btn"
+onclick="calculateBMI()">
+Calculate BMI </button>
+
+<div
+class="result-box"
+id="resultBox"
+style="display:none;">
+
+<div>
+BMI:
+<span id="bmiResult">0</span>
+</div>
+
+<div
+class="category"
+id="bmiCategory">
+Normal
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<footer>
+
+<div class="container">
+<p>© 2026 MyTools. All Rights Reserved.</p>
+</div>
+
+</footer>
+
+<script>
+
+function calculateBMI(){
+
+    const height =
+    parseFloat(
+    document.getElementById("height").value
+    );
+
+    const weight =
+    parseFloat(
+    document.getElementById("weight").value
+    );
+
+    if(!height || !weight){
+
+        alert("Please enter height and weight.");
+
+        return;
+    }
+
+    const bmi =
+    weight / ((height / 100) * (height / 100));
+
+    let category = "";
+
+    if(bmi < 18.5){
+
+        category = "Underweight";
+
+    }else if(bmi < 25){
+
+        category = "Normal Weight";
+
+    }else if(bmi < 30){
+
+        category = "Overweight";
+
+    }else{
+
+        category = "Obese";
+
+    }
+
+    document.getElementById("bmiResult")
+    .innerText = bmi.toFixed(2);
+
+    document.getElementById("bmiCategory")
+    .innerText = category;
+
+    document.getElementById("resultBox")
+    .style.display = "block";
+}
+
+</script>
+
+</body>
+</html>

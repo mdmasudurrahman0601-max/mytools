@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Free online tools for everyone.">
+<meta name="keywords" content="calculator, qr generator, password generator, bmi calculator">
+<meta name="author" content="Your Name">
+
+<meta property="og:title" content="MyTools">
+<meta property="og:description" content="Free Online Tools Website">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://yourusername.github.io">
+<title>Text Case Converter - MyTools</title>
+
+<meta name="description"
+content="Convert text into uppercase, lowercase, title case and sentence case instantly.">
+
+<link rel="stylesheet" href="../style.css">
+
+<style>
+
+.page-section{
+    padding:60px 20px;
+}
+
+.tool-container{
+    max-width:800px;
+    margin:auto;
+}
+
+.tool-title{
+    text-align:center;
+    margin-bottom:30px;
+}
+
+.tool-title h1{
+    color:#2563eb;
+    margin-bottom:10px;
+}
+
+.back-home{
+    display:inline-block;
+    margin-bottom:20px;
+    text-decoration:none;
+    color:#2563eb;
+    font-weight:600;
+}
+
+.output-box{
+    margin-top:20px;
+    background:#eef4ff;
+    padding:15px;
+    border-radius:10px;
+    font-weight:500;
+    white-space:pre-wrap;
+}
+
+.button-group{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+    margin-top:10px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+<div class="container nav">
+
+<div class="logo">MyTools</div>
+
+<nav>
+<ul>
+<li><a href="../index.html">Home</a></li>
+<li><a href="../index.html#tools">Tools</a></li>
+</ul>
+</nav>
+
+</div>
+</header>
+
+<section class="page-section">
+
+<div class="tool-container">
+
+<a href="../index.html" class="back-home">
+← Back to Home
+</a>
+
+<div class="tool-title">
+
+<h1>Text Case Converter</h1>
+
+<p>Convert your text into different formats instantly.</p>
+
+</div>
+
+<div class="tool-form">
+
+<label>Enter Text</label>
+
+<textarea id="inputText" rows="6" placeholder="Type your text here..."></textarea>
+
+<div class="button-group">
+
+<button class="btn" onclick="toUpperCaseText()">UPPERCASE</button>
+
+<button class="btn" onclick="toLowerCaseText()">lowercase</button>
+
+<button class="btn" onclick="toTitleCase()">Title Case</button>
+
+<button class="btn" onclick="toSentenceCase()">Sentence Case</button>
+
+</div>
+
+<div class="output-box" id="outputText">
+Converted text will appear here...
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<footer>
+
+<div class="container">
+<p>© 2026 MyTools. All Rights Reserved.</p>
+</div>
+
+</footer>
+
+<script>
+
+const input = document.getElementById("inputText");
+const output = document.getElementById("outputText");
+
+// UPPERCASE
+function toUpperCaseText(){
+    output.innerText = input.value.toUpperCase();
+}
+
+// lowercase
+function toLowerCaseText(){
+    output.innerText = input.value.toLowerCase();
+}
+
+// Title Case
+function toTitleCase(){
+    let text = input.value.toLowerCase();
+    let result = text.split(" ").map(word => {
+        return word.charAt(0).toUpperCase() + word.slice(1);
+    }).join(" ");
+    output.innerText = result;
+}
+
+// Sentence Case
+function toSentenceCase(){
+    let text = input.value.toLowerCase();
+    let result = text.charAt(0).toUpperCase() + text.slice(1);
+    output.innerText = result;
+}
+
+</script>
+
+</body>
+</html>

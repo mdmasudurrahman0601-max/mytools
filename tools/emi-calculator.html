@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Free online tools for everyone.">
+<meta name="keywords" content="calculator, qr generator, password generator, bmi calculator">
+<meta name="author" content="Your Name">
+
+<meta property="og:title" content="MyTools">
+<meta property="og:description" content="Free Online Tools Website">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://yourusername.github.io">
+<title>EMI Calculator - MyTools</title>
+
+<meta name="description"
+content="Calculate Loan EMI, Total Interest and Total Payment instantly.">
+
+<link rel="stylesheet" href="../style.css">
+
+<style>
+.page-section{
+    padding:60px 20px;
+}
+
+.tool-container{
+    max-width:700px;
+    margin:auto;
+}
+
+.tool-title{
+    text-align:center;
+    margin-bottom:30px;
+}
+
+.tool-title h1{
+    color:#2563eb;
+    margin-bottom:10px;
+}
+
+.back-home{
+    display:inline-block;
+    margin-bottom:20px;
+    text-decoration:none;
+    color:#2563eb;
+    font-weight:600;
+}
+
+.result-item{
+    margin:12px 0;
+    font-size:18px;
+}
+</style>
+
+</head>
+<body>
+
+<header>
+<div class="container nav">
+
+<div class="logo">MyTools</div>
+
+<nav>
+<ul>
+<li><a href="../index.html">Home</a></li>
+<li><a href="../index.html#tools">Tools</a></li>
+</ul>
+</nav>
+
+</div>
+</header>
+
+<section class="page-section">
+
+<div class="tool-container">
+
+<a class="back-home" href="../index.html">
+← Back to Home
+</a>
+
+<div class="tool-title">
+<h1>EMI Calculator</h1>
+<p>Calculate Monthly EMI for any loan.</p>
+</div>
+
+<div class="tool-form">
+
+<label>Loan Amount</label> <input
+type="number"
+id="loanAmount"
+placeholder="Enter loan amount">
+
+<label>Annual Interest Rate (%)</label> <input
+type="number"
+id="interestRate"
+step="0.01"
+placeholder="Enter annual interest rate">
+
+<label>Loan Tenure (Years)</label> <input
+type="number"
+id="loanYears"
+placeholder="Enter loan tenure">
+
+<button
+class="btn"
+onclick="calculateEMI()">
+Calculate EMI </button>
+
+<div
+class="result-box"
+id="resultBox"
+style="display:none;">
+
+<div class="result-item">
+Monthly EMI:
+<strong id="monthlyEMI">0</strong>
+</div>
+
+<div class="result-item">
+Total Interest:
+<strong id="totalInterest">0</strong>
+</div>
+
+<div class="result-item">
+Total Payment:
+<strong id="totalPayment">0</strong>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<footer>
+<div class="container">
+<p>© 2026 MyTools. All Rights Reserved.</p>
+</div>
+</footer>
+
+<script>
+
+function calculateEMI(){
+
+    const principal =
+    parseFloat(
+    document.getElementById("loanAmount").value
+    );
+
+    const annualRate =
+    parseFloat(
+    document.getElementById("interestRate").value
+    );
+
+    const years =
+    parseFloat(
+    document.getElementById("loanYears").value
+    );
+
+    if(!principal || !annualRate || !years){
+
+        alert("Please fill all fields.");
+
+        return;
+    }
+
+    const monthlyRate =
+    annualRate / 12 / 100;
+
+    const months =
+    years * 12;
+
+    const emi =
+    (
+        principal *
+        monthlyRate *
+        Math.pow(1 + monthlyRate, months)
+    ) /
+    (
+        Math.pow(1 + monthlyRate, months) - 1
+    );
+
+    const totalPayment =
+    emi * months;
+
+    const totalInterest =
+    totalPayment - principal;
+
+    document.getElementById("monthlyEMI")
+    .innerText =
+    emi.toFixed(2);
+
+    document.getElementById("totalInterest")
+    .innerText =
+    totalInterest.toFixed(2);
+
+    document.getElementById("totalPayment")
+    .innerText =
+    totalPayment.toFixed(2);
+
+    document.getElementById("resultBox")
+    .style.display = "block";
+}
+
+</script>
+
+</body>
+</html>

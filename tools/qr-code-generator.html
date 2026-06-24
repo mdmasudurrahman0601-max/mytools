@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Free online tools for everyone.">
+<meta name="keywords" content="calculator, qr generator, password generator, bmi calculator">
+<meta name="author" content="Your Name">
+
+<meta property="og:title" content="MyTools">
+<meta property="og:description" content="Free Online Tools Website">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://yourusername.github.io">
+<title>QR Code Generator - MyTools</title>
+
+<meta name="description"
+content="Generate QR codes instantly from text or URL for free.">
+
+<link rel="stylesheet" href="../style.css">
+
+<!-- QR Code Library -->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+
+<style>
+
+.page-section{
+    padding:60px 20px;
+}
+
+.tool-container{
+    max-width:700px;
+    margin:auto;
+    text-align:center;
+}
+
+.tool-title h1{
+    color:#2563eb;
+    margin-bottom:10px;
+}
+
+.back-home{
+    display:inline-block;
+    margin-bottom:20px;
+    text-decoration:none;
+    color:#2563eb;
+    font-weight:600;
+}
+
+#qrcode{
+    margin-top:25px;
+    display:flex;
+    justify-content:center;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+<div class="container nav">
+
+<div class="logo">MyTools</div>
+
+<nav>
+<ul>
+<li><a href="../index.html">Home</a></li>
+<li><a href="../index.html#tools">Tools</a></li>
+</ul>
+</nav>
+
+</div>
+
+</header>
+
+<section class="page-section">
+
+<div class="tool-container">
+
+<a href="../index.html" class="back-home">
+← Back to Home
+</a>
+
+<div class="tool-title">
+
+<h1>QR Code Generator</h1>
+
+<p>Generate QR code from text or URL instantly.</p>
+
+</div>
+
+<div class="tool-form">
+
+<label>Enter Text / URL</label>
+
+<input
+type="text"
+id="text"
+placeholder="https://example.com">
+
+<button class="btn" onclick="generateQR()">
+Generate QR Code
+</button>
+
+</div>
+
+<div id="qrcode"></div>
+
+</div>
+
+</section>
+
+<footer>
+
+<div class="container">
+
+<p>© 2026 MyTools. All Rights Reserved.</p>
+
+</div>
+
+</footer>
+
+<script>
+
+let qr;
+
+function generateQR(){
+
+    const text =
+    document.getElementById("text").value;
+
+    if(!text){
+
+        alert("Please enter text or URL");
+
+        return;
+    }
+
+    document.getElementById("qrcode")
+    .innerHTML = "";
+
+    qr = new QRCode(document.getElementById("qrcode"), {
+
+        text: text,
+        width: 200,
+        height: 200,
+        colorDark: "#000000",
+        colorLight: "#ffffff",
+        correctLevel: QRCode.CorrectLevel.H
+    });
+}
+
+</script>
+
+</body>
+</html>
