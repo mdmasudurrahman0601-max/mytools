@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://github.com/mdmasudurrahman0601-max/mytools/sitemap.xml
+Sitemap: https://mdmasudurrahman0601-max.github.io/mytools/sitemap.xml
