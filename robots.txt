@@ -1,4 +1,5 @@
 User-agent: *
+
 Allow: /
 
 Sitemap: https://mdmasudurrahman0601-max.github.io/mytools/sitemap.xml
